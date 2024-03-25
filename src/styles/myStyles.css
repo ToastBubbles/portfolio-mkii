@@ -1,0 +1,80 @@
+:root {
+  --navbar-height: 4rem;
+  --footer-height: 2.5em;
+
+  /* --lt-red: #ff7272;
+  --sft-blue: #88bbe4;
+  --lt-grey: #ccc;
+  --dk-grey: #32363d;
+  --md-grey: #838282;
+  --lt-yel: #f8ca31;
+  --dk-yel: #a58a33; */
+
+  --white: #fdffff;
+  --lt-grey: #c3c3c3;
+  --dk-grey: #818181;
+  --blue: #010081;
+  --turq: #008080;
+  --pink: #ff0081;
+}
+
+/* @font-face {
+  font-family: lexend;
+  src: url(/Lexend_Deca/LexendDeca-VariableFont_wght.ttf);
+} */
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--turq);
+}
+
+* {
+  box-sizing: border-box;
+  /* font-family: "lexend", "Tahoma", sans-serif; */
+  font-family: "MS Sans Serif", sans-serif;
+}
+#root-wrapper {
+  min-height: calc(100vh - var(--footer-height));
+}
+.navbar {
+  background-color: var(--blue);
+  color: var(--white);
+  width: 100%;
+  padding: 0.5em;
+  height: var(--navbar-height);
+}
+
+.footer {
+  background-color: var(--lt-grey);
+  height: var(--footer-height);
+  color: var(--lt-blue);
+  padding: 3px;
+  display: flex;
+  width: 100%;
+  box-shadow: 
+  0 -1.5px 0 0 var(--white), /* First border */
+  0 -3px 0 0 var(--lt-grey); /* Second border */
+}
+.start-btn {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0%;
+  min-width: unset;
+  width: 6em;
+}
+
+.logo {
+  font-size: 2em;
+  color: var(--white);
+
+  text-shadow: -2px 1px 0 #88bbe4, 0 2px 0 #88bbe4c4, 0 3px 0 #88bbe47e,
+    0 4px 0 #88bbe441, 0 5px 0 #88bbe42d;
+}
+
+.clickable {
+  cursor: pointer;
+}
