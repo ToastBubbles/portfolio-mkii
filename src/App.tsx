@@ -1,8 +1,7 @@
 import { Route, Routes } from "react-router";
 import Home from "./views/Home";
 import NotFound from "./views/NotFound";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import Taskbar from "./components/Taskbar";
 
 function App() {
   return (
@@ -14,7 +13,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
-      <Footer />
+      <Taskbar />
     </>
   );
 }
