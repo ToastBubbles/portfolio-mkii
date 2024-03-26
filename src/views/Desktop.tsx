@@ -1,7 +1,8 @@
 import React, { ReactNode, useEffect, useRef, useState } from "react";
 import DesktopIcon from "../components/DesktopIcon";
-import { coords } from "../general/interfaces";
+import { INodeWithId, coords } from "../general/interfaces";
 import DragSelect from "../components/DragSelect";
+// import { initialIcons } from "../general/desktopExports";
 
 interface ISlot {
   id: number;
@@ -24,24 +25,22 @@ export default function Desktop() {
   const [dragSelectStart, setDragSelectStart] = useState<coords | undefined>(
     undefined
   );
+
+  const [windows, setWindows] = useState<INodeWithId[]>([]);
   const [dragSelectMousePos, setDragSelectMousePos] = useState<
     coords | undefined
   >(undefined);
 
-  const initialIcons: ReactNode[] = [
-    <DesktopIcon
-      key={0}
-      name="Recycle Bin"
-      iconName="bin_empty.png"
-      clickFn={binClick}
-    />,
-    <DesktopIcon
-      key={1}
-      name="Recycle Bin"
-      iconName="bin_empty.png"
-      clickFn={binClick}
-    />,
-  ];
+  function addWindow(data: INodeWithId) {
+    const existingWindow = windows.find((x) => x.id == data.id);
+    if (!existingWindow) setWindows((prevWindows) => [...prevWindows, data]);
+  }
+
+  function closeWindow(id: number) {
+    setWindows((prevWindows) =>
+      prevWindows.filter((window) => window.id !== id)
+    );
+  }
   useEffect(() => {
     if (slots.length == 0) {
       genSlots();
@@ -52,14 +51,18 @@ export default function Desktop() {
   }, [dragSelect]);
   function handleMouseDown(e: any) {
     if (!draggingIcon) {
-      setDragSelect(true);
       setDragSelectStart({ x: e.clientX, y: e.clientY });
     }
   }
 
   function handleMouseMove(e: any) {
-    if (!draggingIcon && dragSelect) {
+    if (!draggingIcon) {
+      setDragSelect(true);
       setDragSelectMousePos({ x: e.clientX, y: e.clientY });
+    } else {
+      setDragSelect(false);
+      setDragSelectStart(undefined);
+      setDragSelectMousePos(undefined);
     }
   }
 
@@ -68,7 +71,71 @@ export default function Desktop() {
     setDragSelectStart(undefined);
     markIconsInSelection();
   }
-
+  const initialIcons: ReactNode[] = [
+    <DesktopIcon
+      key={0}
+      id={0}
+      addWindow={addWindow}
+      closeWindow={closeWindow}
+      name="Projects"
+      iconName="folder.png"
+      result={<></>}
+    />,
+    <DesktopIcon
+      key={1}
+      id={1}
+      addWindow={addWindow}
+      closeWindow={closeWindow}
+      name="Recycle Bin"
+      iconName="bin_empty.png"
+      windowContent={<>u sure bruh</>}
+    />,
+  ];
+  return (
+    <div
+      className="desktop"
+      ref={desktopRef}
+      onMouseDown={handleMouseDown}
+      onMouseMove={handleMouseMove}
+      onMouseUp={handleMouseUp}
+    >
+      <div className="window-container">
+      {windows.map((window) => (
+        <div  key={window.id}>{window.node}</div>
+      ))}</div>
+      <DragSelect startPos={dragSelectStart} mousePos={dragSelectMousePos} />
+      {slots.map((slot) => {
+        if (slot.icon != undefined) {
+          return (
+            <div
+              key={slot.id}
+              draggable="true"
+              style={{
+                position: "absolute",
+                left: `${slot.x}px`,
+                top: `${slot.y}px`,
+              }}
+              className={`${slot.selected ? "selected-icon" : ""} ${
+                draggingIcon ? "dragging" : "clickable"
+              }`}
+              onDragStart={(e) => {
+                setDraggingIcon(true);
+                setOffsetX(e.clientX - slot.x);
+                setOffsetY(e.clientY - slot.y);
+              }}
+              onDragEnd={(e) => {
+                setDraggingIcon(false);
+                console.log("Mouse Coordinates:", e.clientX, e.clientY);
+                handleDragIcon(e.clientX, e.clientY, slot);
+              }}
+            >
+              {slot.icon}
+            </div>
+          );
+        }
+      })}
+    </div>
+  );
   function markIconsInSelection() {
     const selectedIconIds: number[] = [];
     if (!dragSelectStart || !dragSelectMousePos) return;
@@ -102,49 +169,6 @@ export default function Desktop() {
     setSlots(updatedSlots);
     console.log(selectedIconIds);
   }
-
-  return (
-    <div
-      className="desktop"
-      ref={desktopRef}
-      onMouseDown={handleMouseDown}
-      onMouseMove={handleMouseMove}
-      onMouseUp={handleMouseUp}
-    >
-      <DragSelect startPos={dragSelectStart} mousePos={dragSelectMousePos} />
-      {slots.map((slot) => {
-        if (slot.icon != undefined) {
-          return (
-            <div
-              key={slot.id}
-              draggable="true"
-              style={{
-                position: "absolute",
-                left: `${slot.x}px`,
-                top: `${slot.y}px`,
-              }}
-              className={`${slot.selected ? "selected-icon" : ""} ${
-                draggingIcon ? "dragging" : "clickable"
-              }`}
-              onDragStart={(e) => {
-                setOffsetX(e.clientX - slot.x);
-                setOffsetY(e.clientY - slot.y);
-                setDraggingIcon(true);
-              }}
-              onDragEnd={(e) => {
-                setDraggingIcon(false);
-                console.log("Mouse Coordinates:", e.clientX, e.clientY);
-                handleDragIcon(e.clientX, e.clientY, slot);
-              }}
-            >
-              {slot.icon}
-            </div>
-          );
-        }
-      })}
-    </div>
-  );
-
   function handleDragIcon(mouseX: number, mouseY: number, slot: ISlot) {
     if (slot.id == undefined) return;
     let xOffset = offestX ? offestX : 10;
@@ -211,9 +235,5 @@ export default function Desktop() {
     console.log(slotPosistions);
 
     setSlots(slotPosistions);
-  }
-
-  function binClick() {
-    console.log("click");
   }
 }
