@@ -5,8 +5,11 @@ interface iProps {
 }
 export default function DesktopIcon({ iconName, name, clickFn }: iProps) {
   return (
-    <div className="desktop-icon clickable" onDoubleClick={() => clickFn()}>
-      <img  src={`src/assets/${iconName}`}></img>
+    <div className="desktop-icon" onDoubleClick={() => clickFn()}>
+      <img
+        src={`src/assets/${iconName}`}
+        style={{ pointerEvents: "none" }}
+      ></img>
       <div>{name}</div>
     </div>
   );

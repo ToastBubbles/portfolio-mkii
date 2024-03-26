@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router";
-import Home from "./views/Home";
 import NotFound from "./views/NotFound";
 import Taskbar from "./components/Taskbar";
+import Desktop from "./views/Desktop";
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
       {/* <Navbar /> */}
       <div id="root-wrapper">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Desktop />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
