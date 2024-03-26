@@ -1,10 +1,11 @@
-import { ReactNode, useEffect, useRef, useState } from "react";
+import React, { ReactNode, useEffect, useRef, useState } from "react";
 import DesktopIcon from "../components/DesktopIcon";
+import { coords } from "../general/interfaces";
+import DragSelect from "../components/DragSelect";
 
 interface ISlot {
-  id: number | undefined;
-  row: number;
-  col: number;
+  id: number;
+  selected: boolean;
   x: number;
   y: number;
   icon: ReactNode | undefined;
@@ -15,12 +16,17 @@ export default function Desktop() {
   const minY = 93;
   const [slots, setSlots] = useState<ISlot[]>([]);
   const desktopRef = useRef<HTMLDivElement>(null);
-  const [draggedIconId, setDraggedIconId] = useState<number | undefined>(
-    undefined
-  );
+
   const [offestX, setOffsetX] = useState<number | undefined>(undefined);
   const [offestY, setOffsetY] = useState<number | undefined>(undefined);
-  const [dragging, setDragging] = useState(false);
+  const [draggingIcon, setDraggingIcon] = useState(false);
+  const [dragSelect, setDragSelect] = useState(false);
+  const [dragSelectStart, setDragSelectStart] = useState<coords | undefined>(
+    undefined
+  );
+  const [dragSelectMousePos, setDragSelectMousePos] = useState<
+    coords | undefined
+  >(undefined);
 
   const initialIcons: ReactNode[] = [
     <DesktopIcon
@@ -41,28 +47,92 @@ export default function Desktop() {
       genSlots();
     }
   }, [slots]);
+  useEffect(() => {
+    console.log(dragSelect);
+  }, [dragSelect]);
+  function handleMouseDown(e: any) {
+    if (!draggingIcon) {
+      setDragSelect(true);
+      setDragSelectStart({ x: e.clientX, y: e.clientY });
+    }
+  }
+
+  function handleMouseMove(e: any) {
+    if (!draggingIcon && dragSelect) {
+      setDragSelectMousePos({ x: e.clientX, y: e.clientY });
+    }
+  }
+
+  function handleMouseUp() {
+    setDragSelect(false);
+    setDragSelectStart(undefined);
+    markIconsInSelection();
+  }
+
+  function markIconsInSelection() {
+    const selectedIconIds: number[] = [];
+    if (!dragSelectStart || !dragSelectMousePos) return;
+
+    const minX = Math.min(dragSelectStart.x, dragSelectMousePos.x);
+    const maxX = Math.max(dragSelectStart.x, dragSelectMousePos.x);
+    const minY = Math.min(dragSelectStart.y, dragSelectMousePos.y);
+    const maxY = Math.max(dragSelectStart.y, dragSelectMousePos.y);
+
+    const updatedSlots = slots.map((slot) => {
+      const slotX = slot.x;
+      const slotY = slot.y;
+
+      const isSelected =
+        slot.icon != undefined &&
+        slotX >= minX &&
+        slotX + minX <= maxX &&
+        slotY >= minY &&
+        slotY + minY <= maxY;
+
+      if (isSelected) {
+        selectedIconIds.push(slot.id);
+      }
+
+      return {
+        ...slot,
+        selected: isSelected,
+      };
+    });
+
+    setSlots(updatedSlots);
+    console.log(selectedIconIds);
+  }
 
   return (
-    <div className="desktop" ref={desktopRef}>
+    <div
+      className="desktop"
+      ref={desktopRef}
+      onMouseDown={handleMouseDown}
+      onMouseMove={handleMouseMove}
+      onMouseUp={handleMouseUp}
+    >
+      <DragSelect startPos={dragSelectStart} mousePos={dragSelectMousePos} />
       {slots.map((slot) => {
         if (slot.icon != undefined) {
           return (
             <div
-              key={`${slot.row}-${slot.col}`}
+              key={slot.id}
               draggable="true"
               style={{
                 position: "absolute",
                 left: `${slot.x}px`,
                 top: `${slot.y}px`,
               }}
-              className={dragging ? "dragging" : "clickable"}
+              className={`${slot.selected ? "selected-icon" : ""} ${
+                draggingIcon ? "dragging" : "clickable"
+              }`}
               onDragStart={(e) => {
                 setOffsetX(e.clientX - slot.x);
                 setOffsetY(e.clientY - slot.y);
-                setDragging(true);
+                setDraggingIcon(true);
               }}
               onDragEnd={(e) => {
-                setDragging(false);
+                setDraggingIcon(false);
                 console.log("Mouse Coordinates:", e.clientX, e.clientY);
                 handleDragIcon(e.clientX, e.clientY, slot);
               }}
@@ -131,8 +201,7 @@ export default function Desktop() {
         }
         slotPosistions.push({
           id,
-          row: r,
-          col: c,
+          selected: false,
           x: c * minX,
           y: r * minY,
           icon,
