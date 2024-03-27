@@ -32,7 +32,7 @@ export default function FolderLeftPane({ title, iconName, project }: iProps) {
             <div className="verdana" style={{ marginBottom: "1em" }}>
               {project.description}
             </div>
-            <div className="verdana">Created:</div>
+            <div className="verdana">Created on:</div>
             <div className="verdana">{project.date}</div>
           </div>
         ) : (

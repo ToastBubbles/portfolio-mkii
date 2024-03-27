@@ -9,20 +9,19 @@ export default function ProjectsView() {
     IProjectData | undefined
   >(undefined);
 
-  
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
-      const isInsideProject = target.closest('.clickable');
+      const isInsideProject = target.closest(".clickable");
       if (!isInsideProject) {
         setSelectedProject(undefined);
       }
     };
 
-    document.body.addEventListener('click', handleClickOutside);
+    document.body.addEventListener("click", handleClickOutside);
 
     return () => {
-      document.body.removeEventListener('click', handleClickOutside);
+      document.body.removeEventListener("click", handleClickOutside);
     };
   }, []);
   return (
@@ -30,13 +29,14 @@ export default function ProjectsView() {
       <FullscreenWindow
         title="Projects"
         content={
-          <>
+          <div className="d-flex" style={{ width: "100%" }}>
             {projects.map((project, index) => (
               <div
                 key={index}
                 className={`clickable ${
                   selectedProject == project ? "selected-icon" : ""
                 }`}
+                style={{ width: "80px", maxHeight: "95px" }}
                 draggable={true}
                 onClick={() => {
                   setSelectedProject(project);
@@ -50,7 +50,7 @@ export default function ProjectsView() {
                 />
               </div>
             ))}
-          </>
+          </div>
         }
         selectedProject={selectedProject}
         count={projects.length}
