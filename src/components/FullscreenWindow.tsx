@@ -1,7 +1,6 @@
 import { ReactNode } from "react";
 import FolderLeftPane from "./FolderLeftPane";
 import { useNavigate } from "react-router";
-import { projects } from "../general/desktopExports";
 import { IProjectData } from "../general/interfaces";
 
 interface iProps {

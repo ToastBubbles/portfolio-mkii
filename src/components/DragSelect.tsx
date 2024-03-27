@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+
 import { coords } from "../general/interfaces";
 
 interface iProps {

@@ -1,6 +1,6 @@
-import React, { ReactNode, useEffect, useRef, useState } from "react";
+import  { ReactNode, useEffect, useRef, useState } from "react";
 import DesktopIcon from "../components/DesktopIcon";
-import { INodeWithId, coords } from "../general/interfaces";
+import { coords } from "../general/interfaces";
 import DragSelect from "../components/DragSelect";
 // import { initialIcons } from "../general/desktopExports";
 
@@ -26,21 +26,21 @@ export default function Desktop() {
     undefined
   );
 
-  const [windows, setWindows] = useState<INodeWithId[]>([]);
+  // const [windows, setWindows] = useState<INodeWithId[]>([]);
   const [dragSelectMousePos, setDragSelectMousePos] = useState<
     coords | undefined
   >(undefined);
 
-  function addWindow(data: INodeWithId) {
-    const existingWindow = windows.find((x) => x.id == data.id);
-    if (!existingWindow) setWindows((prevWindows) => [...prevWindows, data]);
-  }
+  // function addWindow(data: INodeWithId) {
+  //   const existingWindow = windows.find((x) => x.id == data.id);
+  //   if (!existingWindow) setWindows((prevWindows) => [...prevWindows, data]);
+  // }
 
-  function closeWindow(id: number) {
-    setWindows((prevWindows) =>
-      prevWindows.filter((window) => window.id !== id)
-    );
-  }
+  // function closeWindow(id: number) {
+  //   setWindows((prevWindows) =>
+  //     prevWindows.filter((window) => window.id !== id)
+  //   );
+  // }
   useEffect(() => {
     if (slots.length == 0) {
       genSlots();
@@ -93,11 +93,11 @@ export default function Desktop() {
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
     >
-      <div className="window-container">
+      {/* <div className="window-container">
         {windows.map((window) => (
           <div key={window.id}>{window.node}</div>
         ))}
-      </div>
+      </div> */}
       <DragSelect startPos={dragSelectStart} mousePos={dragSelectMousePos} />
       {slots.map((slot) => {
         if (slot.icon != undefined) {
