@@ -1,13 +1,15 @@
 import { ReactNode, useState } from "react";
 import Window from "./Window";
 import { INodeWithId } from "../general/interfaces";
+import { useNavigate, useNavigation } from "react-router";
 
 interface iProps {
   iconName: string;
   name: string;
-  addWindow: (data: INodeWithId) => void;
-  closeWindow: (id: number) => void;
+  addWindow?: (data: INodeWithId) => void;
+  closeWindow?: (id: number) => void;
   result?: ReactNode;
+  link: string;
   windowContent?: ReactNode;
   id: number;
 }
@@ -16,19 +18,22 @@ export default function DesktopIcon({
   name,
   addWindow,
   closeWindow,
+  link,
   result,
   windowContent,
   id,
 }: iProps) {
+  const navigate = useNavigate();
+
   const tryToAddWindow = () => {
-    addWindow({ id, node: <Window closeWindow={tryToCloseWindow} /> });
+    // addWindow({ id, node: <Window closeWindow={tryToCloseWindow} /> });
   };
 
   const tryToCloseWindow = () => {
-    closeWindow(id);
+    // closeWindow(id);
   };
   return (
-    <div className="desktop-icon" onDoubleClick={tryToAddWindow}>
+    <div className="desktop-icon" onDoubleClick={() => navigate(link)}>
       <div
         className="image-selected"
         style={{

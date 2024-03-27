@@ -80,6 +80,7 @@ export default function Desktop() {
       name="Projects"
       iconName="folder.png"
       result={<></>}
+      link={"/projects"}
     />,
     <DesktopIcon
       key={1}
@@ -89,6 +90,7 @@ export default function Desktop() {
       name="Recycle Bin"
       iconName="bin_empty.png"
       windowContent={<>u sure bruh</>}
+      link={"/bin"}
     />,
   ];
   return (
@@ -100,9 +102,10 @@ export default function Desktop() {
       onMouseUp={handleMouseUp}
     >
       <div className="window-container">
-      {windows.map((window) => (
-        <div  key={window.id}>{window.node}</div>
-      ))}</div>
+        {windows.map((window) => (
+          <div key={window.id}>{window.node}</div>
+        ))}
+      </div>
       <DragSelect startPos={dragSelectStart} mousePos={dragSelectMousePos} />
       {slots.map((slot) => {
         if (slot.icon != undefined) {

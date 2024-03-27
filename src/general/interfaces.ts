@@ -8,3 +8,10 @@ export interface INodeWithId {
   node: ReactNode;
   id: number;
 }
+
+export interface IProjectData {
+  name: string;
+  type: string;
+  description: string;
+  date: string;
+}
