@@ -1,39 +1,29 @@
-import { ReactNode, useState } from "react";
-import Window from "./Window";
-import { INodeWithId } from "../general/interfaces";
-import { useNavigate, useNavigation } from "react-router";
+import { useNavigate } from "react-router";
 
 interface iProps {
   iconName: string;
   name: string;
-  addWindow?: (data: INodeWithId) => void;
-  closeWindow?: (id: number) => void;
-  result?: ReactNode;
-  link: string;
-  windowContent?: ReactNode;
-  id: number;
+  link?: string;
+  externalLink?: string;
+  blackText?: boolean;
 }
 export default function DesktopIcon({
   iconName,
   name,
-  addWindow,
-  closeWindow,
+  externalLink,
   link,
-  result,
-  windowContent,
-  id,
+  blackText = false,
 }: iProps) {
   const navigate = useNavigate();
 
-  const tryToAddWindow = () => {
-    // addWindow({ id, node: <Window closeWindow={tryToCloseWindow} /> });
-  };
-
-  const tryToCloseWindow = () => {
-    // closeWindow(id);
-  };
   return (
-    <div className="desktop-icon" onDoubleClick={() => navigate(link)}>
+    <div
+      className="desktop-icon"
+      onDoubleClick={() => {
+        if (link) navigate(link);
+        else if (externalLink) window.open(externalLink, "_blank");
+      }}
+    >
       <div
         className="image-selected"
         style={{
@@ -46,8 +36,9 @@ export default function DesktopIcon({
         src={`src/assets/${iconName}`}
         style={{ pointerEvents: "none" }}
       ></img>
-      <div className="icon-name">{name}</div>
-      {/* {isOpen && <Window closeWindow={closePopup} />} */}
+      <div className="icon-name" style={blackText ? { color: "#000" } : {}}>
+        {name}
+      </div>
     </div>
   );
 }

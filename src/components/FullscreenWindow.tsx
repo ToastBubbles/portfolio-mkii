@@ -1,13 +1,22 @@
 import { ReactNode } from "react";
 import FolderLeftPane from "./FolderLeftPane";
 import { useNavigate } from "react-router";
+import { projects } from "../general/desktopExports";
+import { IProjectData } from "../general/interfaces";
 
 interface iProps {
   title: string;
   content: ReactNode;
+  count: number;
+  selectedProject: IProjectData | undefined;
 }
 
-export default function FullscreenWindow({ title, content }: iProps) {
+export default function FullscreenWindow({
+  title,
+  content,
+  count,
+  selectedProject,
+}: iProps) {
   const navigate = useNavigate();
   return (
     <div className="window fullscreen">
@@ -30,7 +39,7 @@ export default function FullscreenWindow({ title, content }: iProps) {
             <FolderLeftPane
               title="Projects"
               iconName="internet_folder.png"
-              project={undefined}
+              project={selectedProject}
             />
             {content}
           </div>
@@ -38,7 +47,7 @@ export default function FullscreenWindow({ title, content }: iProps) {
       </div>
       <div className="window-footer">
         <div style={{ width: "30%", marginRight: "2px" }} className="verdana">
-          3 object(s)
+          {count} object(s)
         </div>
         <div className="fg-1"></div>
         <div className="my-pc-win-footer verdana">

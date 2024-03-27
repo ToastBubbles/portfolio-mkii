@@ -74,22 +74,14 @@ export default function Desktop() {
   const initialIcons: ReactNode[] = [
     <DesktopIcon
       key={0}
-      id={0}
-      addWindow={addWindow}
-      closeWindow={closeWindow}
       name="Projects"
       iconName="folder.png"
-      result={<></>}
       link={"/projects"}
     />,
     <DesktopIcon
       key={1}
-      id={1}
-      addWindow={addWindow}
-      closeWindow={closeWindow}
       name="Recycle Bin"
       iconName="bin_empty.png"
-      windowContent={<>u sure bruh</>}
       link={"/bin"}
     />,
   ];

@@ -10,8 +10,11 @@ export interface INodeWithId {
 }
 
 export interface IProjectData {
+  id: number;
   name: string;
   type: string;
   description: string;
+  iconName: string;
+  link: string;
   date: string;
 }

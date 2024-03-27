@@ -22,7 +22,19 @@ export default function FolderLeftPane({ title, iconName, project }: iProps) {
       </div>
       <div className="left-pane-body">
         {project ? (
-          <div className="verdana"></div>
+          <div className="verdana d-flex flex-col" style={{ fontSize: "10pt" }}>
+            <div className="verdana" style={{ fontWeight: "600" }}>
+              {project.name}
+            </div>
+            <div className="verdana" style={{ marginBottom: "1em" }}>
+              {project.type}
+            </div>
+            <div className="verdana" style={{ marginBottom: "1em" }}>
+              {project.description}
+            </div>
+            <div className="verdana">Created:</div>
+            <div className="verdana">{project.date}</div>
+          </div>
         ) : (
           <div className="verdana">Select an item to view its description.</div>
         )}

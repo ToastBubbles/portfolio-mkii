@@ -158,8 +158,15 @@ img {
 .window-footer {
   display: flex;
   padding: 0 8px 3px 8px;
-font-size: 11pt;
+  font-size: 11pt;
   width: 100%;
+}
+
+.d-flex {
+  display: flex;
+}
+.flex-col {
+  flex-direction: column;
 }
 .window-footer > div {
   border: solid 1.5px var(--dk-grey);
@@ -169,6 +176,7 @@ font-size: 11pt;
 }
 .selected-icon > div > .icon-name {
   background-color: var(--blue);
+  border: dotted 1px white;
 }
 .selected-icon > div > .image-selected {
   display: unset;
