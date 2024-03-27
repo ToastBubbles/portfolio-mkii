@@ -11,7 +11,7 @@ export default function FolderLeftPane({ title, iconName, project }: iProps) {
     <nav className="folder-left-pane">
       <div style={{ margin: "1.5em 1.5em 0 1.5em" }}>
         <img src={`src/assets/${iconName}`}></img>
-        <p className="left-pane-title">{title}</p>
+        <p className="left-pane-title verdana">{title}</p>
       </div>
       <div>
         <img
@@ -22,9 +22,9 @@ export default function FolderLeftPane({ title, iconName, project }: iProps) {
       </div>
       <div className="left-pane-body">
         {project ? (
-          <div></div>
+          <div className="verdana"></div>
         ) : (
-          <div>Select an item to view its description.</div>
+          <div className="verdana">Select an item to view its description.</div>
         )}
       </div>
     </nav>
