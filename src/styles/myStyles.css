@@ -73,6 +73,7 @@ body {
   background-repeat: no-repeat; /* Do not repeat the background image */
   overflow: hidden;
 }
+
 img {
   image-rendering: pixelated;
 }
@@ -360,4 +361,16 @@ img {
   text-align: start;
   margin-left: 10.5px;
   font-family: "Pixelated MS Sans Serif", Arial;
+}
+@media only screen and (max-width: 900px) {
+  body {
+    background-size: 20em;
+  }
+  .folder-left-pane {
+    width: 40%;
+  }
+  .my-pc-win-footer {
+    width: unset;
+  }
+  .start-menu-container {width: 100%;}
 }

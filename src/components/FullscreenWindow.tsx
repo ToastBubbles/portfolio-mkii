@@ -22,7 +22,12 @@ export default function FullscreenWindow({
       <div className="title-bar" style={{ cursor: "default" }}>
         <div className="title-bar-text">{title}</div>
         <div className="title-bar-controls">
-          <button aria-label="Minimize" />
+          <button
+            aria-label="Minimize"
+            onClick={() => {
+              navigate("/");
+            }}
+          />
           <button aria-label="Maximize" />
           <button
             aria-label="Close"
@@ -50,10 +55,7 @@ export default function FullscreenWindow({
         </div>
         <div className="fg-1"></div>
         <div className="my-pc-win-footer verdana">
-          <img
-            style={{ marginRight: "5px" }}
-            src="/computer1.png"
-          ></img>
+          <img style={{ marginRight: "5px" }} src="/computer1.png"></img>
           My Computer
         </div>
       </div>

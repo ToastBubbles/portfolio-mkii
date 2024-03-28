@@ -29,7 +29,7 @@ export default function ProjectsView() {
       <FullscreenWindow
         title="Projects"
         content={
-          <div className="d-flex" style={{ width: "100%" }}>
+          <div className="d-flex" style={{ width: "100%", flexWrap: "wrap" }}>
             {projects.map((project, index) => (
               <div
                 key={index}
@@ -39,6 +39,9 @@ export default function ProjectsView() {
                 style={{ width: "80px", maxHeight: "95px" }}
                 draggable={true}
                 onClick={() => {
+                  setSelectedProject(project);
+                }}
+                onTouchStart={() => {
                   setSelectedProject(project);
                 }}
               >

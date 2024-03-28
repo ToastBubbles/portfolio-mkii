@@ -15,11 +15,14 @@ export default function DesktopIcon({
   blackText = false,
 }: iProps) {
   const navigate = useNavigate();
-  
 
   return (
     <div
       className="desktop-icon"
+      onTouchEnd={() => {
+        if (link) navigate(link);
+        else if (externalLink) window.open(externalLink, "_blank");
+      }}
       onDoubleClick={() => {
         if (link) navigate(link);
         else if (externalLink) window.open(externalLink, "_blank");
