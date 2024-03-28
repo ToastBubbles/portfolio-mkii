@@ -31,6 +31,13 @@ export default function StartMenu({ visible }: iProps) {
           />
           <StartMenuDivider />
           <StartMenuIcon
+            name="About"
+            iconName="about.png"
+            blackText={true}
+            link="/about"
+          />
+          <StartMenuDivider />
+          <StartMenuIcon
             name="Shutdown"
             iconName="shutdown.png"
             blackText={true}

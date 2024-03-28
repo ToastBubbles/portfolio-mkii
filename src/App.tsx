@@ -5,10 +5,13 @@ import Desktop from "./views/Desktop";
 import ProjectsView from "./views/ProjectsView";
 import MiniProjectsView from "./views/MiniProjectsView";
 import { useState } from "react";
+import AboutView from "./views/About";
 
 function App() {
   const [programName, setProgramName] = useState<string | undefined>(undefined);
-  const [programMinimized, setProgramMinimized] = useState<string | undefined>(undefined);
+  const [programMinimized, setProgramMinimized] = useState<string | undefined>(
+    undefined
+  );
   return (
     <>
       <div id="root-wrapper">
@@ -17,11 +20,30 @@ function App() {
           <Route path="*" element={<NotFound />} />
           <Route
             path="/projects"
-            element={<ProjectsView setActiveProgramName={setProgramName} setMinimized={setProgramMinimized} />}
+            element={
+              <ProjectsView
+                setActiveProgramName={setProgramName}
+                setMinimized={setProgramMinimized}
+              />
+            }
           />
           <Route
             path="/projects/mini"
-            element={<MiniProjectsView setActiveProgramName={setProgramName} setMinimized={setProgramMinimized} />}
+            element={
+              <MiniProjectsView
+                setActiveProgramName={setProgramName}
+                setMinimized={setProgramMinimized}
+              />
+            }
+          />
+          <Route
+            path="/about"
+            element={
+              <AboutView
+                setActiveProgramName={setProgramName}
+                setMinimized={setProgramMinimized}
+              />
+            }
           />
         </Routes>
       </div>
