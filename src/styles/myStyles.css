@@ -286,7 +286,8 @@ img {
   flex-grow: 1;
 }
 .start-menu.visible {
-  transform: translateY(-100%); /* Slide up when visible */
+  bottom: -60%;
+  transform: translateY(calc(-100%));
 }
 .hidden {
   opacity: 0;
@@ -295,7 +296,7 @@ img {
 .start-menu {
   /* height: 50em; */
   position: absolute;
-  bottom: calc(var(--footer-height) - 20.25em);
+  bottom: 0;
   left: 0;
   z-index: 1;
   border: solid 2px var(--lt-grey);
@@ -305,7 +306,7 @@ img {
 }
 .start-menu-container {
   position: absolute;
-  bottom: calc(var(--footer-height) - 5px);
+  bottom: calc(var(--footer-height));
   left: 0;
   width: 30%;
   height: 30em;
