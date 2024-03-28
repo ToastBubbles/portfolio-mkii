@@ -36,7 +36,7 @@ export default function FullscreenWindow({
         <div className="window-body-container">
           <div className="window-body-inner-border">
             <FolderLeftPane
-              title="Projects"
+              title={title}
               iconName="internet_folder.png"
               project={selectedProject}
             />
@@ -52,7 +52,7 @@ export default function FullscreenWindow({
         <div className="my-pc-win-footer verdana">
           <img
             style={{ marginRight: "5px" }}
-            src="src/assets/computer1.png"
+            src="/src/assets/computer1.png"
           ></img>
           My Computer
         </div>

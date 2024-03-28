@@ -9,7 +9,7 @@ export const projects: IProjectData[] = [
     description:
       "qelement is a passion project made to cover comprehensive LEGO information.",
     iconName: "defrag.png",
-    link: "https://github.com/ToastBubbles/qelement-web",
+    externalLink: "https://github.com/ToastBubbles/qelement-web",
     date: "9 Apr 2023",
   },
   {
@@ -18,7 +18,7 @@ export const projects: IProjectData[] = [
     description:
       "qelement is a passion project made to cover comprehensive LEGO information.",
     iconName: "network.png",
-    link: "https://github.com/ToastBubbles/qelement_api",
+    externalLink: "https://github.com/ToastBubbles/qelement_api",
     date: "9 Apr 2023",
   },
   {
@@ -27,7 +27,7 @@ export const projects: IProjectData[] = [
     description:
       "An agile web-scraper, capable of switching VPN's, tracking specific data, scraping Single Page Applications (SPA), running bash commands, speech synthesis, and sending emails on successful scrapes",
     iconName: "search.png",
-    link: "https://github.com/ToastBubbles/scrape-escape",
+    externalLink: "https://github.com/ToastBubbles/scrape-escape",
     date: "9 Jan 2023",
   },
   {
@@ -36,7 +36,7 @@ export const projects: IProjectData[] = [
     description:
       "A LEGO Fan game crafted for a contest, where participants were tasked with creating captivating gameplay utilizing just a single button.",
     iconName: "game.png",
-    link: "https://play.unity.com/mg/lego/webgl-builds-113703",
+    externalLink: "https://play.unity.com/mg/lego/webgl-builds-113703",
     date: "29 Oct 2021",
   },
   {
@@ -45,7 +45,7 @@ export const projects: IProjectData[] = [
     description:
       "A LEGO Fan game crafted for a contest, where participants were tasked with creating captivating gameplay utilizing just a single button.",
     iconName: "help.png",
-    link: "https://github.com/ToastBubbles/gravity-crane",
+    externalLink: "https://github.com/ToastBubbles/gravity-crane",
     date: "29 Oct 2021",
   },
   {
@@ -54,7 +54,7 @@ export const projects: IProjectData[] = [
     description:
       "A website that tracks and displays stock trades made by members of the United States Congress. Users can search for stock trades by ticker symbol or politician's name, and create a list of their favorite politicians to follow.",
     iconName: "freecell.png",
-    link: "https://milkmoney.me/",
+    externalLink: "https://milkmoney.me/",
     date: "6 Apr 2023",
   },
   {
@@ -63,7 +63,15 @@ export const projects: IProjectData[] = [
     description:
       "A website that tracks and displays stock trades made by members of the United States Congress. Users can search for stock trades by ticker symbol or politician's name, and create a list of their favorite politicians to follow.",
     iconName: "help.png",
-    link: "https://github.com/Milk-Money/Milk-Money",
+    externalLink: "https://github.com/Milk-Money/Milk-Money",
+    date: "6 Apr 2023",
+  },
+  {
+    name: "Other Mini Projects",
+    type: "Other",
+    description: "Take a look at some honorable mentions.",
+    iconName: "folder.png",
+    link: "/projects/mini",
     date: "6 Apr 2023",
   },
 ];

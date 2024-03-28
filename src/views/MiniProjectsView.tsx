@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
-import DesktopIcon from "../components/DesktopIcon";
 import FullscreenWindow from "../components/FullscreenWindow";
 import { projects } from "../general/desktopExports";
 import { IProjectData } from "../general/interfaces";
 
-export default function ProjectsView() {
+export default function MiniProjectsView() {
   const [selectedProject, setSelectedProject] = useState<
     IProjectData | undefined
   >(undefined);
@@ -27,10 +26,10 @@ export default function ProjectsView() {
   return (
     <div className="projects-view">
       <FullscreenWindow
-        title="Projects"
+        title="Mini Projects"
         content={
           <div className="d-flex" style={{ width: "100%" }}>
-            {projects.map((project, index) => (
+            {/* {projects.map((project, index) => (
               <div
                 key={index}
                 className={`clickable ${
@@ -45,12 +44,11 @@ export default function ProjectsView() {
                 <DesktopIcon
                   iconName={project.iconName}
                   name={project.name}
-                  externalLink={project.externalLink}
-                  link={project.link}
+                  externalLink={project.link}
                   blackText={selectedProject == project ? false : true}
                 />
               </div>
-            ))}
+            ))} */}
           </div>
         }
         selectedProject={selectedProject}

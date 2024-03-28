@@ -10,7 +10,7 @@ export default function FolderLeftPane({ title, iconName, project }: iProps) {
   return (
     <nav className="folder-left-pane">
       <div style={{ margin: "1.5em 1.5em 0 1.5em" }}>
-        <img src={`src/assets/${iconName}`}></img>
+        <img src={`/src/assets/${iconName}`}></img>
         <p className="left-pane-title verdana">{title}</p>
       </div>
       <div>

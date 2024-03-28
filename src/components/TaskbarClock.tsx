@@ -16,7 +16,7 @@ export default function TaskbarClock() {
   }, []); // Run effect only once on component mount
   return (
     <div className="tb-clock">
-      <img src="src/assets/speaker.png"></img>
+      <img src="/src/assets/speaker.png"></img>
       <div className="font-old" style={{ margin: "0 0.5em" }}>
         {currentTime}
       </div>
