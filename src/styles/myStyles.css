@@ -2,6 +2,8 @@
   --navbar-height: 4rem;
   --footer-height: 2rem;
 
+  --selected-program-pattern: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAG0lEQVQYV2P8/////4MHDzIwHjhw4L+9vT0DAHAFCj6esq3FAAAAAElFTkSuQmCC");
+
   /* --lt-red: #ff7272;
   --sft-blue: #88bbe4;
   --lt-grey: #ccc;
@@ -362,6 +364,27 @@ img {
   margin-left: 10.5px;
   font-family: "Pixelated MS Sans Serif", Arial;
 }
+
+.tb-program {
+  border: solid 1px black;
+  border-bottom-color: var(--white);
+  border-right-color: var(--white);
+}
+.tb-program > div {
+  min-width: 200px;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  height: 100%;
+  border: solid 1px var(--dk-grey);
+  border-bottom-color: var(--lt-grey);
+  border-right-color: var(--lt-grey);
+  background: var(--selected-program-pattern) repeat;
+}
+.tb-program > div > img {
+  margin-right: 5px;
+}
 @media only screen and (max-width: 900px) {
   body {
     background-size: 20em;
@@ -372,5 +395,7 @@ img {
   .my-pc-win-footer {
     width: unset;
   }
-  .start-menu-container {width: 100%;}
+  .start-menu-container {
+    width: 100%;
+  }
 }

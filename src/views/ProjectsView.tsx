@@ -3,8 +3,15 @@ import DesktopIcon from "../components/DesktopIcon";
 import FullscreenWindow from "../components/FullscreenWindow";
 import { projects } from "../general/desktopExports";
 import { IProjectData } from "../general/interfaces";
+interface iProps {
+  setMinimized: (l: string | undefined) => void;
+  setActiveProgramName: (n: string | undefined) => void;
+}
 
-export default function ProjectsView() {
+export default function ProjectsView({
+  setMinimized,
+  setActiveProgramName,
+}: iProps) {
   const [selectedProject, setSelectedProject] = useState<
     IProjectData | undefined
   >(undefined);
@@ -28,6 +35,9 @@ export default function ProjectsView() {
     <div className="projects-view">
       <FullscreenWindow
         title="Projects"
+        setProgramName={setActiveProgramName}
+        setMinimized={setMinimized}
+        endpoint="/projects"
         content={
           <div className="d-flex" style={{ width: "100%", flexWrap: "wrap" }}>
             {projects.map((project, index) => (

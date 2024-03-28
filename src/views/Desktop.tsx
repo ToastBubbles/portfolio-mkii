@@ -29,29 +29,16 @@ export default function Desktop() {
     undefined
   );
 
-  // const [windows, setWindows] = useState<INodeWithId[]>([]);
   const [dragSelectMousePos, setDragSelectMousePos] = useState<
     coords | undefined
   >(undefined);
 
-  // function addWindow(data: INodeWithId) {
-  //   const existingWindow = windows.find((x) => x.id == data.id);
-  //   if (!existingWindow) setWindows((prevWindows) => [...prevWindows, data]);
-  // }
-
-  // function closeWindow(id: number) {
-  //   setWindows((prevWindows) =>
-  //     prevWindows.filter((window) => window.id !== id)
-  //   );
-  // }
   useEffect(() => {
     if (slots.length == 0) {
       genSlots();
     }
   }, [slots]);
-  useEffect(() => {
-    console.log(dragSelect);
-  }, [dragSelect]);
+  useEffect(() => {}, [dragSelect]);
   function handleMouseDown(e: any) {
     if (!draggingIcon) {
       setDragSelectStart({ x: e.clientX, y: e.clientY });
@@ -179,7 +166,6 @@ export default function Desktop() {
     });
 
     setSlots(updatedSlots);
-    console.log(selectedIconIds);
   }
   function handleDragIcon(mouseX: number, mouseY: number, slot: ISlot) {
     if (slot.id == undefined) return;
@@ -220,13 +206,7 @@ export default function Desktop() {
     const desktopHeight = desktopRef.current.clientHeight;
     const columns = Math.floor(desktopWidth / minX);
     const rows = Math.floor(desktopHeight / minY);
-    console.log(
-      "Desktop Width:",
-      desktopWidth,
-      "Desktop Height:",
-      desktopHeight
-    );
-    console.log("Columns: ", columns, "Rows: ", rows);
+
     let slotPosistions: ISlot[] = [];
     for (let r = 0; r < rows; r++) {
       for (let c = 0; c < columns; c++) {
@@ -244,7 +224,6 @@ export default function Desktop() {
         });
       }
     }
-    console.log(slotPosistions);
 
     setSlots(slotPosistions);
   }

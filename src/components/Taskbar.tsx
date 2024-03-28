@@ -3,8 +3,14 @@ import StartButton from "./StartButton";
 import StartMenu from "./StartMenu";
 import TaskbarClock from "./TaskbarClock";
 import TaskbarDivider from "./TaskbarDivider";
+import TaskbarProgram from "./TaskbarProgram";
 
-export default function Taskbar() {
+interface iProps {
+  activeProgramName: string | undefined;
+  minimized: string | undefined;
+}
+
+export default function Taskbar({ activeProgramName, minimized }: iProps) {
   const [startMenuVisible, setStartMenuVisible] = useState(false);
 
   const toggleStartMenu = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -16,7 +22,6 @@ export default function Taskbar() {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
       const isInsideProject = target.closest(".start-menu");
-      console.log(isInsideProject, startMenuVisible);
 
       if (isInsideProject === null && startMenuVisible) {
         console.log("closing");
@@ -37,9 +42,7 @@ export default function Taskbar() {
         className={`start-menu-container ${startMenuVisible ? "" : "hidden"}`}
       >
         <StartMenu visible={startMenuVisible} />
-        <div className="start-menu-mask">
-          {/* This div will mask the excess portion of the start menu */}
-        </div>
+        <div className="start-menu-mask"></div>
       </div>
       <StartButton
         onClick={(e) => {
@@ -47,6 +50,13 @@ export default function Taskbar() {
         }}
       />
       <TaskbarDivider />
+      {activeProgramName != undefined && (
+        <TaskbarProgram
+          name={activeProgramName}
+          iconName="folder-open-small.png"
+          link={minimized}
+        />
+      )}
       <div className="fg-1"></div>
       <TaskbarDivider />
       <TaskbarClock />

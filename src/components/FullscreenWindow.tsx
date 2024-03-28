@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 import FolderLeftPane from "./FolderLeftPane";
 import { useNavigate } from "react-router";
 import { IProjectData } from "../general/interfaces";
@@ -8,6 +8,9 @@ interface iProps {
   content: ReactNode;
   count: number;
   selectedProject: IProjectData | undefined;
+  setProgramName: (n: string | undefined) => void;
+  setMinimized: (l: string | undefined) => void;
+  endpoint: string;
 }
 
 export default function FullscreenWindow({
@@ -15,8 +18,18 @@ export default function FullscreenWindow({
   content,
   count,
   selectedProject,
+  setProgramName,
+  setMinimized,
+  endpoint,
 }: iProps) {
   const navigate = useNavigate();
+  useEffect(() => {
+    setProgramName(title);
+  }, [setProgramName]);
+
+  useEffect(() => {
+    setMinimized(endpoint);
+  }, [setMinimized]);
   return (
     <div className="window fullscreen">
       <div className="title-bar" style={{ cursor: "default" }}>
@@ -32,6 +45,7 @@ export default function FullscreenWindow({
           <button
             aria-label="Close"
             onClick={() => {
+              setProgramName(undefined);
               navigate("/");
             }}
           />

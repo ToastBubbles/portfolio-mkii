@@ -4,20 +4,28 @@ import Taskbar from "./components/Taskbar";
 import Desktop from "./views/Desktop";
 import ProjectsView from "./views/ProjectsView";
 import MiniProjectsView from "./views/MiniProjectsView";
+import { useState } from "react";
 
 function App() {
+  const [programName, setProgramName] = useState<string | undefined>(undefined);
+  const [programMinimized, setProgramMinimized] = useState<string | undefined>(undefined);
   return (
     <>
-      {/* <Navbar /> */}
       <div id="root-wrapper">
         <Routes>
           <Route path="/" element={<Desktop />} />
           <Route path="*" element={<NotFound />} />
-          <Route path="/projects" element={<ProjectsView />} />
-          <Route path="/projects/mini" element={<MiniProjectsView />} />
+          <Route
+            path="/projects"
+            element={<ProjectsView setActiveProgramName={setProgramName} setMinimized={setProgramMinimized} />}
+          />
+          <Route
+            path="/projects/mini"
+            element={<MiniProjectsView setActiveProgramName={setProgramName} setMinimized={setProgramMinimized} />}
+          />
         </Routes>
       </div>
-      <Taskbar />
+      <Taskbar activeProgramName={programName} minimized={programMinimized} />
     </>
   );
 }
