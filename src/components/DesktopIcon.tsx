@@ -27,13 +27,13 @@ export default function DesktopIcon({
       <div
         className="image-selected"
         style={{
-          maskImage: `url(src/assets/${iconName})`,
-          WebkitMaskImage: `url(src/assets/${iconName})`,
+          maskImage: `url(/${iconName})`,
+          WebkitMaskImage: `url(/${iconName})`,
         }}
       ></div>
       <img
         className="icon-img"
-        src={`src/assets/${iconName}`}
+        src={`/${iconName}`}
         style={{ pointerEvents: "none" }}
       ></img>
       <div className="icon-name" style={blackText ? { color: "#000" } : {}}>

@@ -52,7 +52,7 @@ export default function FullscreenWindow({
         <div className="my-pc-win-footer verdana">
           <img
             style={{ marginRight: "5px" }}
-            src="/src/assets/computer1.png"
+            src="/computer1.png"
           ></img>
           My Computer
         </div>
