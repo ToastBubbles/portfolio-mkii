@@ -33,7 +33,9 @@ export default function Taskbar() {
 
   return (
     <footer className="taskbar">
-      <div className="start-menu-container">
+      <div
+        className={`start-menu-container ${startMenuVisible ? "" : "hidden"}`}
+      >
         <StartMenu visible={startMenuVisible} />
         <div className="start-menu-mask">
           {/* This div will mask the excess portion of the start menu */}

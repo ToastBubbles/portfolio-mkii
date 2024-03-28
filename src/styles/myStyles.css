@@ -304,8 +304,8 @@ img {
   position: absolute;
   bottom: calc(var(--footer-height) - 5px);
   left: 0;
-  width: 100%;
-  height: calc(100vh - var(--navbar-height) - var(--footer-height));
+  width: 30%;
+  height: 30em;
   overflow: hidden; /* Hide overflow */
 }
 
