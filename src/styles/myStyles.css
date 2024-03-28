@@ -71,6 +71,7 @@ body {
   background-size: auto;
   background-position: center; /* Center the background image */
   background-repeat: no-repeat; /* Do not repeat the background image */
+  overflow: hidden;
 }
 img {
   image-rendering: pixelated;
@@ -93,6 +94,7 @@ img {
 }
 
 .icon-name {
+  font-family: "MS Sans Serif", "Segoe UI", sans-serif;
   width: 100%;
   padding: 2px 0;
   /* font-size: 9pt; */
@@ -131,7 +133,7 @@ img {
 .window-body-container {
   width: 100%;
   height: 100%;
-  border: solid 1.5px var(--white);
+  border: solid 1px var(--white);
   border-top-color: #000;
   border-left-color: #000;
 }
@@ -140,7 +142,7 @@ img {
   width: 100%;
   height: 100%;
   background-color: white;
-  border: solid 1.5px var(--dk-grey);
+  border: solid 1px var(--dk-grey);
   border-bottom-color: var(--lt-grey);
   border-right-color: var(--lt-grey);
 }
@@ -170,7 +172,7 @@ img {
   flex-direction: column;
 }
 .window-footer > div {
-  border: solid 1.5px var(--dk-grey);
+  border: solid 1px var(--dk-grey);
   border-bottom-color: var(--white);
   border-right-color: var(--white);
   padding: 3px;
@@ -182,6 +184,7 @@ img {
 .selected-icon > div > .image-selected {
   display: unset;
 }
+
 .desktop-icon {
   position: absolute;
   display: flex;
@@ -212,14 +215,16 @@ img {
   position: absolute;
 }
 .taskbar {
+  position: relative;
   display: flex;
   background-color: var(--lt-grey);
   height: var(--footer-height);
   color: var(--lt-blue);
   padding: 3px;
   width: 100%;
-  box-shadow: 0 -1.5px 0 0 var(--white),
+  box-shadow: 0 -1px 0 0 var(--white),
     /* First border */ 0 -3px 0 0 var(--lt-grey); /* Second border */
+  z-index: 10;
 }
 
 .taskbar-divider {
@@ -243,10 +248,10 @@ img {
   align-items: center;
   padding: 2px;
 
-  border-top: solid 1.5px var(--dk-grey);
-  border-left: solid 1.5px var(--dk-grey);
-  border-right: solid 1.5px var(--white);
-  border-bottom: solid 1.5px var(--white);
+  border-top: solid 1px var(--dk-grey);
+  border-left: solid 1px var(--dk-grey);
+  border-right: solid 1px var(--white);
+  border-bottom: solid 1px var(--white);
 }
 .dragging {
   cursor: grabbing; /* or cursor: move; */
@@ -276,4 +281,83 @@ img {
 
 .fg-1 {
   flex-grow: 1;
+}
+.start-menu.visible {
+  transform: translateY(-100%); /* Slide up when visible */
+}
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.start-menu {
+  /* height: 50em; */
+  position: absolute;
+  bottom: calc(var(--footer-height) - 20.25em);
+  left: 0;
+  z-index: 1;
+  border: solid 2px var(--lt-grey);
+  border-bottom-color: #000;
+  border-right-color: #000;
+  transition: transform 0.5s linear;
+}
+.start-menu-container {
+  position: absolute;
+  bottom: calc(var(--footer-height) - 5px);
+  left: 0;
+  width: 100%;
+  height: calc(100vh - var(--navbar-height) - var(--footer-height));
+  overflow: hidden; /* Hide overflow */
+}
+
+.start-menu-mask {
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%);
+}
+.start-menu-divider {
+  width: 98%;
+  height: 2px;
+  margin: 0 1%;
+  background: var(--dk-grey);
+  border-bottom: solid 1px var(--white);
+}
+
+.start-menu > div {
+  /* width: 100%; */
+  display: flex;
+  height: 100%;
+  background-color: var(--lt-grey);
+  border: solid 2px var(--white);
+  border-bottom-color: var(--dk-grey);
+  border-right-color: var(--dk-grey);
+  padding: 3px;
+}
+.start-menu-left {
+  display: flex;
+  align-items: end;
+  background-color: #0000aa;
+  /* height: 100%; */
+  flex-grow: 1;
+}
+.start-menu-left > img {
+  width: 30px;
+}
+.start-menu-icon-container {
+  width: 250px;
+}
+.start-menu-icon {
+  display: flex;
+
+  align-items: center;
+  padding: 10px;
+  color: var(--white);
+  width: 160px;
+  min-height: 50px;
+}
+.start-menu-icon > img {
+  width: 28px;
+  height: 28px;
+}
+.start-menu-icon > .icon-name {
+  text-align: start;
+  margin-left: 10.5px;
+  font-family: "Pixelated MS Sans Serif", Arial;
 }

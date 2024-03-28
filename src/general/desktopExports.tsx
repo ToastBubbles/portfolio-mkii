@@ -101,8 +101,7 @@ export const miniProjects: IProjectData[] = [
     description:
       "A mobile game where you control a dart and must pop all the balloons before they disappear! This project has been successfully compiled to a .apk file, but has not been deployed to the Play store.",
     iconName: "nail.png",
-    externalLink:
-      "https://github.com/ToastBubbles/unofficial-bricklink-extension/tree/main",
+    externalLink: "https://github.com/ToastBubbles/BalloonPopper",
     date: "11 Oct 2023",
   },
   {

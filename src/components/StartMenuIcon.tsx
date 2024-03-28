@@ -6,23 +6,28 @@ interface iProps {
   link?: string;
   externalLink?: string;
   blackText?: boolean;
+  overrideFn?: () => void;
 }
-export default function DesktopIcon({
+export default function StartMenuIcon({
   iconName,
   name,
   externalLink,
   link,
   blackText = false,
+  overrideFn,
 }: iProps) {
   const navigate = useNavigate();
-  
 
   return (
     <div
-      className="desktop-icon"
-      onDoubleClick={() => {
-        if (link) navigate(link);
-        else if (externalLink) window.open(externalLink, "_blank");
+      className="start-menu-icon clickable"
+      onClick={() => {
+        if (overrideFn) {
+          overrideFn();
+        } else {
+          if (link) navigate(link);
+          else if (externalLink) window.open(externalLink, "_blank");
+        }
       }}
     >
       <div

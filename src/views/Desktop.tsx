@@ -1,4 +1,4 @@
-import  { ReactNode, useEffect, useRef, useState } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 import DesktopIcon from "../components/DesktopIcon";
 import { coords } from "../general/interfaces";
 import DragSelect from "../components/DragSelect";
@@ -17,6 +17,9 @@ export default function Desktop() {
   const minY = 93;
   const [slots, setSlots] = useState<ISlot[]>([]);
   const desktopRef = useRef<HTMLDivElement>(null);
+  const [selectedIconId, setSelectedIconId] = useState<number | undefined>(
+    undefined
+  );
 
   const [offestX, setOffsetX] = useState<number | undefined>(undefined);
   const [offestY, setOffsetY] = useState<number | undefined>(undefined);
@@ -85,6 +88,20 @@ export default function Desktop() {
       link={"/bin"}
     />,
   ];
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      const isInsideProject = target.closest(".clickable");
+      if (!isInsideProject) {
+        setSelectedIconId(undefined);
+      }
+    };
+    document.body.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.body.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
   return (
     <div
       className="desktop"
@@ -93,16 +110,14 @@ export default function Desktop() {
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
     >
-      {/* <div className="window-container">
-        {windows.map((window) => (
-          <div key={window.id}>{window.node}</div>
-        ))}
-      </div> */}
       <DragSelect startPos={dragSelectStart} mousePos={dragSelectMousePos} />
       {slots.map((slot) => {
         if (slot.icon != undefined) {
           return (
             <div
+              onClick={() => {
+                if (slot.icon != undefined) setSelectedIconId(slot.id);
+              }}
               key={slot.id}
               draggable="true"
               style={{
@@ -110,9 +125,11 @@ export default function Desktop() {
                 left: `${slot.x}px`,
                 top: `${slot.y}px`,
               }}
-              className={`${slot.selected ? "selected-icon" : ""} ${
-                draggingIcon ? "dragging" : "clickable"
-              }`}
+              className={`${
+                slot.selected || selectedIconId == slot.id
+                  ? "selected-icon"
+                  : ""
+              } ${draggingIcon ? "dragging" : "clickable"}`}
               onDragStart={(e) => {
                 setDraggingIcon(true);
                 setOffsetX(e.clientX - slot.x);
