@@ -34,6 +34,11 @@
 }
 
 @font-face {
+  font-family: "FixedSys";
+  src: url("/FSEX302.ttf") format("truetype");
+}
+
+@font-face {
   font-family: "Pixelated MS Sans Serif";
   src: url("fonts/converted/ms_sans_serif_bold.woff") format("woff");
   src: url("fonts/converted/ms_sans_serif_bold.woff2") format("woff2");
@@ -126,6 +131,14 @@ img {
   -khtml-user-drag: none; /* Konqueror */
   -moz-user-drag: none; /* Firefox */
   -o-user-drag: none; /* Opera */
+}
+
+.notepad-area {
+  width: 100%;
+  resize: none;
+  font-family: "FixedSys", monospace;
+  /* font-weight: 600; */
+  font-size: 12pt;
 }
 
 .projects-view,
