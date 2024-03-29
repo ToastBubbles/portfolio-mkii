@@ -1,12 +1,12 @@
-import { useNavigate } from "react-router";
+
 import StartMenuDivider from "./StartMenuDivider";
 import StartMenuIcon from "./StartMenuIcon";
 interface iProps {
   visible: boolean;
-  setMenuVisible: (b: boolean) => void;
+
 }
-export default function StartMenu({ visible, setMenuVisible }: iProps) {
-  const navigate = useNavigate();
+export default function StartMenu({ visible }: iProps) {
+
   return (
     <div className={`start-menu ${visible ? "visible" : "hidden"}`}>
       <div>
@@ -34,10 +34,7 @@ export default function StartMenu({ visible, setMenuVisible }: iProps) {
           />
           <StartMenuDivider />
           <div
-          // onClick={() => {
-          //   setMenuVisible(false);
-          //   navigate("/about");
-          // }}
+     
           >
             <StartMenuIcon
               name="About"

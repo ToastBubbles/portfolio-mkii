@@ -43,7 +43,7 @@ export default function Taskbar({ activeProgramName, minimized }: iProps) {
       >
         <StartMenu
           visible={startMenuVisible}
-          setMenuVisible={setStartMenuVisible}
+         
         />
         <div className="start-menu-mask"></div>
       </div>

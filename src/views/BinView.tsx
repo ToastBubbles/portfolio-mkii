@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import FullscreenWindow from "../components/FullscreenWindow";
-import { binProjects, miniProjects, projects } from "../general/desktopExports";
+import { binProjects } from "../general/desktopExports";
 import { IProjectData } from "../general/interfaces";
 import DesktopIcon from "../components/DesktopIcon";
 interface iProps {

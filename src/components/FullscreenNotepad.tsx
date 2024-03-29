@@ -1,7 +1,6 @@
-import { ReactNode, useEffect } from "react";
-import FolderLeftPane from "./FolderLeftPane";
+import { useEffect } from "react";
+
 import { useNavigate } from "react-router";
-import { IProjectData } from "../general/interfaces";
 
 interface iProps {
   setProgramName: (n: string | undefined) => void;
