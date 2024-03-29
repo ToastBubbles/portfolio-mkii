@@ -78,7 +78,7 @@ body {
   background-size: auto;
   background-position: center; /* Center the background image */
   background-repeat: no-repeat; /* Do not repeat the background image */
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 img {
