@@ -1,4 +1,3 @@
-
 import { useLocation, useNavigate } from "react-router";
 
 interface iProps {
@@ -16,10 +15,7 @@ export default function TaskbarProgram({ name, iconName, link }: iProps) {
       className="tb-program clickable"
       onClick={() => {
         if (link) {
-
-
           if (link == location.pathname) {
-         
             navigate("/");
           } else {
             navigate(link);
@@ -28,7 +24,9 @@ export default function TaskbarProgram({ name, iconName, link }: iProps) {
       }}
     >
       <div>
-        <img src={`/${iconName}`}></img>
+        <img
+          src={`/${name.includes("Notepad") ? "notepad-small.png" : iconName}`}
+        ></img>
         <div>{name}</div>
       </div>
     </div>

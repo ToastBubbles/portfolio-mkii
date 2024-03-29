@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
-import DesktopIcon from "../components/DesktopIcon";
 import FullscreenWindow from "../components/FullscreenWindow";
-import { projects } from "../general/desktopExports";
+import { binProjects, miniProjects, projects } from "../general/desktopExports";
 import { IProjectData } from "../general/interfaces";
+import DesktopIcon from "../components/DesktopIcon";
 interface iProps {
   setMinimized: (l: string | undefined) => void;
   setActiveProgramName: (n: string | undefined) => void;
 }
 
-export default function ProjectsView({
+export default function BinView({
   setMinimized,
   setActiveProgramName,
 }: iProps) {
@@ -34,14 +34,14 @@ export default function ProjectsView({
   return (
     <div className="projects-view">
       <FullscreenWindow
-        title="Projects"
         setProgramName={setActiveProgramName}
         setMinimized={setMinimized}
-        endpoint="/projects"
-        iconName="internet_folder.png"
+        endpoint="/bin"
+        title="Recycle Bin"
+        iconName="clean.png"
         content={
           <div className="d-flex" style={{ width: "100%", flexWrap: "wrap" }}>
-            {projects.map((project, index) => (
+            {binProjects.map((project, index) => (
               <div
                 key={index}
                 className={`clickable ${
@@ -60,7 +60,6 @@ export default function ProjectsView({
                   iconName={project.iconName}
                   name={project.name}
                   externalLink={project.externalLink}
-                  link={project.link}
                   blackText={selectedProject == project ? false : true}
                 />
               </div>
@@ -68,7 +67,7 @@ export default function ProjectsView({
           </div>
         }
         selectedProject={selectedProject}
-        count={projects.length}
+        count={binProjects.length}
       />
     </div>
   );

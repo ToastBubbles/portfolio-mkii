@@ -110,7 +110,26 @@ img {
   z-index: 5;
 }
 
-.projects-view, .about-view {
+.pe-none {
+  pointer-events: none;
+}
+
+.pe-none,
+.interact-none {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none; /* Standard syntax */
+
+  /* Disable dragging */
+  -webkit-user-drag: none; /* Safari */
+  -khtml-user-drag: none; /* Konqueror */
+  -moz-user-drag: none; /* Firefox */
+  -o-user-drag: none; /* Opera */
+}
+
+.projects-view,
+.about-view {
   height: 100%;
 }
 .left-pane-title {

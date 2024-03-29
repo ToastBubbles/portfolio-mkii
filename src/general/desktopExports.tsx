@@ -92,7 +92,7 @@ export const miniProjects: IProjectData[] = [
     description: "A tool that adds useful features to Bricklink.com",
     iconName: "ie-box.png",
     externalLink:
-      "https://github.com/ToastBubbles/unofficial-bricklink-extension/tree/main",
+      "https://github.com/ToastBubbles/unofficial-bricklink-extension",
     date: "5 Feb 2024",
   },
   {
@@ -163,5 +163,16 @@ export const miniProjects: IProjectData[] = [
     iconName: "vr.png",
     externalLink: "https://github.com/ToastBubbles/vr-cannon",
     date: "27 Mar 2020",
+  },
+];
+
+export const binProjects: IProjectData[] = [
+  {
+    name: "Shrimplicity",
+    type: "Vanilla JS, HTML, CSS webpage",
+    description: "A website for shrimp lovers.",
+    iconName: "shrimp.png",
+    externalLink: "https://github.com/ToastBubbles/shrimplicity",
+    date: "9 Dec 2022",
   },
 ];

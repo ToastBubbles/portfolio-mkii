@@ -3,6 +3,7 @@ import DesktopIcon from "../components/DesktopIcon";
 import FullscreenWindow from "../components/FullscreenWindow";
 import { projects } from "../general/desktopExports";
 import { IProjectData } from "../general/interfaces";
+import FullscreenNotepad from "../components/FullscreenNotepad";
 interface iProps {
   setMinimized: (l: string | undefined) => void;
   setActiveProgramName: (n: string | undefined) => void;
@@ -33,15 +34,10 @@ export default function AboutView({
   }, []);
   return (
     <div className="about-view">
-      <FullscreenWindow
-        title="About"
+      <FullscreenNotepad
         setProgramName={setActiveProgramName}
         setMinimized={setMinimized}
         endpoint="/about"
-        content={<>About</>}
-        selectedProject={selectedProject}
-        count={projects.length}
-        hideLeftPane={true}
       />
     </div>
   );

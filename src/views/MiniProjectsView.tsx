@@ -38,6 +38,7 @@ export default function MiniProjectsView({
         setMinimized={setMinimized}
         endpoint="/projects/mini"
         title="Mini Projects"
+        iconName="internet_folder.png"
         content={
           <div className="d-flex" style={{ width: "100%", flexWrap: "wrap" }}>
             {miniProjects.map((project, index) => (
@@ -66,7 +67,7 @@ export default function MiniProjectsView({
           </div>
         }
         selectedProject={selectedProject}
-        count={projects.length}
+        count={miniProjects.length}
       />
     </div>
   );

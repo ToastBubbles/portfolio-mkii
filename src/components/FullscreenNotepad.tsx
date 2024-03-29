@@ -4,31 +4,19 @@ import { useNavigate } from "react-router";
 import { IProjectData } from "../general/interfaces";
 
 interface iProps {
-  title: string;
-  content: ReactNode;
-  count: number;
-  iconName: string;
-  selectedProject: IProjectData | undefined;
   setProgramName: (n: string | undefined) => void;
   setMinimized: (l: string | undefined) => void;
   endpoint: string;
-  hideLeftPane?: boolean;
 }
 
-export default function FullscreenWindow({
-  title,
-  content,
-  count,
-  iconName,
-  selectedProject,
+export default function FullscreenNotepad({
   setProgramName,
   setMinimized,
   endpoint,
-  hideLeftPane = false,
 }: iProps) {
   const navigate = useNavigate();
   useEffect(() => {
-    setProgramName(title);
+    setProgramName("About.txt - Notepad");
   }, [setProgramName]);
 
   useEffect(() => {
@@ -41,11 +29,11 @@ export default function FullscreenWindow({
         style={{ cursor: "default", justifyContent: "start" }}
       >
         <img
-          src="/folder-open-small.png"
+          src="/notepad-small.png"
           style={{ marginRight: "5px" }}
           className="pe-none"
         ></img>
-        <div className="title-bar-text fg-1 pe-none">{title}</div>
+        <div className="title-bar-text fg-1 pe-none">About.txt - Notepad</div>
         <div className="title-bar-controls">
           <button
             aria-label="Minimize"
@@ -65,26 +53,7 @@ export default function FullscreenWindow({
       </div>
       <div className="window-body fg-1">
         <div className="window-body-container">
-          <div className="window-body-inner-border">
-            {!hideLeftPane && (
-              <FolderLeftPane
-                title={title}
-                iconName={iconName}
-                project={selectedProject}
-              />
-            )}
-            {content}
-          </div>
-        </div>
-      </div>
-      <div className="window-footer">
-        <div style={{ width: "30%", marginRight: "2px" }} className="verdana">
-          {count} object(s)
-        </div>
-        <div className="fg-1"></div>
-        <div className="my-pc-win-footer verdana">
-          <img style={{ marginRight: "5px" }} src="/computer1.png"></img>
-          My Computer
+          <div className="window-body-inner-border"></div>
         </div>
       </div>
     </div>

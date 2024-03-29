@@ -6,6 +6,7 @@ import ProjectsView from "./views/ProjectsView";
 import MiniProjectsView from "./views/MiniProjectsView";
 import { useState } from "react";
 import AboutView from "./views/About";
+import BinView from "./views/BinView";
 
 function App() {
   const [programName, setProgramName] = useState<string | undefined>(undefined);
@@ -36,6 +37,16 @@ function App() {
               />
             }
           />
+          <Route
+            path="/bin"
+            element={
+              <BinView
+                setActiveProgramName={setProgramName}
+                setMinimized={setProgramMinimized}
+              />
+            }
+          />
+
           <Route
             path="/about"
             element={
