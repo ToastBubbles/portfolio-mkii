@@ -64,7 +64,7 @@ export default function FullscreenNotepad({
            ▓▓ ░▒▓▓▓  ▓▓░░░░░░   ▓▓▒░░░░▓▓  ▓▓
           ▓▓  ░▒▓▓  ▓▓▓▓▓▓▓▓  ▓▓▒░    ▓▓  ▓▓▓▓▓▓▓▓
            ▒▒   ░▒▒  ▒▒▒▒▒▒▒▒  ▒▒░     ▒▒  ▒▒▒▒▒▒▒▒
-          ░░    ░░  ░░░░░░░░  ░░      ▒▒  ▒▒▒▒▒▒▒▒
+          ░░    ░░  ░░░░░░░░  ░░      ░░  ░░░░░░░░
 
   Hello and welcome to my portfolio!
 
@@ -73,6 +73,9 @@ About me:
 
 My love for programming began in 2014 when I wrote my first ActionScript program in Adobe Flash, it wasn't much, just a simple bullet-hell style game, but it ignited a fire within me.  I quickly moved on from 2D games to 3D; learning Blender, Unity, and C#. I was a one-man-circus, planning, modeling, rigging, texturing, scripting, and even composing music. Something about writing a story and seeing it come to life has always been so mesmerizing to me. After awhile, I rediscovered my childhood love for LEGO and this lead me to start building web-scraping programs using Node.js to keep track of LEGO prices and stock. This made me realize that programming was something I could do for a living and so I attended Codeup, a 6-month full-stack JavaScript and Java/Spring bootcamp. That's where I am today, eager to start my first job in a field that I love where I can make ideas turn into reality!
 
+Beyond the IDE:
+
+Other than coding, I'm a huge LEGO fan (if you couldn't already tell!) I have an awesome collection of Star Wars, Minecraft, and (my favorite) non-production LEGO bricks that were only used by LEGO designers/employees to construct models for LEGOLAND themeparks and other events. This facisnation lead me to the creation of my largest and most comprehensive project, qelement. While it is still a work in progress, I plan to have it deployed by mid-to-late 2024. I am also the proud owner of an e-commerce LEGO part store hosted on bricklink.com! My other hobbies include cooking, 3D modelling, animation, graphic design, CAD/CAM with CNC machines, reading, music composition,
 
 Credits:
 
