@@ -2,7 +2,6 @@ import { ReactNode, useEffect, useRef, useState } from "react";
 import DesktopIcon from "../components/DesktopIcon";
 import { coords } from "../general/interfaces";
 import DragSelect from "../components/DragSelect";
-// import { initialIcons } from "../general/desktopExports";
 
 interface ISlot {
   id: number;
@@ -71,10 +70,25 @@ export default function Desktop() {
     <DesktopIcon
       key={1}
       name="Recycle Bin"
-      iconName="bin_empty.png"
+      iconName="bin_full.png"
       link={"/bin"}
     />,
   ];
+  useEffect(() => {
+    const handleResize = () => {
+      // Your function to be called on window resize
+      genSlots();
+      console.log("Window resized");
+    };
+
+    // Add event listener when component mounts
+    window.addEventListener("resize", handleResize);
+
+    // Remove event listener when component unmounts
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
@@ -208,13 +222,17 @@ export default function Desktop() {
     const rows = Math.floor(desktopHeight / minY);
 
     let slotPosistions: ISlot[] = [];
+    let lastIcon = initialIcons[initialIcons.length - 1];
+
     for (let r = 0; r < rows; r++) {
       for (let c = 0; c < columns; c++) {
         let id = c + r * columns;
         let icon = undefined;
-        if (initialIcons[id]) {
+
+        if (initialIcons[id] && initialIcons[id] != lastIcon) {
           icon = initialIcons[id];
         }
+
         slotPosistions.push({
           id,
           selected: false,
@@ -224,6 +242,7 @@ export default function Desktop() {
         });
       }
     }
+    slotPosistions[slotPosistions.length - 1].icon = lastIcon;
 
     setSlots(slotPosistions);
   }

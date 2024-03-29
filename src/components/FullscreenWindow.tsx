@@ -11,6 +11,7 @@ interface iProps {
   setProgramName: (n: string | undefined) => void;
   setMinimized: (l: string | undefined) => void;
   endpoint: string;
+  hideLeftPane?: boolean;
 }
 
 export default function FullscreenWindow({
@@ -21,6 +22,7 @@ export default function FullscreenWindow({
   setProgramName,
   setMinimized,
   endpoint,
+  hideLeftPane = false,
 }: iProps) {
   const navigate = useNavigate();
   useEffect(() => {
@@ -54,11 +56,11 @@ export default function FullscreenWindow({
       <div className="window-body fg-1">
         <div className="window-body-container">
           <div className="window-body-inner-border">
-            <FolderLeftPane
+            {!hideLeftPane && <FolderLeftPane
               title={title}
               iconName="internet_folder.png"
               project={selectedProject}
-            />
+            />}
             {content}
           </div>
         </div>

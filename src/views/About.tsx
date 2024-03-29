@@ -32,42 +32,16 @@ export default function AboutView({
     };
   }, []);
   return (
-    <div className="projects-view">
+    <div className="about-view">
       <FullscreenWindow
-        title="Projects"
+        title="About"
         setProgramName={setActiveProgramName}
         setMinimized={setMinimized}
-        endpoint="/projects"
-        content={
-          <div className="d-flex" style={{ width: "100%", flexWrap: "wrap" }}>
-            {projects.map((project, index) => (
-              <div
-                key={index}
-                className={`clickable ${
-                  selectedProject == project ? "selected-icon" : ""
-                }`}
-                style={{ width: "80px", maxHeight: "95px" }}
-                draggable={true}
-                onClick={() => {
-                  setSelectedProject(project);
-                }}
-                onTouchStart={() => {
-                  setSelectedProject(project);
-                }}
-              >
-                <DesktopIcon
-                  iconName={project.iconName}
-                  name={project.name}
-                  externalLink={project.externalLink}
-                  link={project.link}
-                  blackText={selectedProject == project ? false : true}
-                />
-              </div>
-            ))}
-          </div>
-        }
+        endpoint="/about"
+        content={<>About</>}
         selectedProject={selectedProject}
         count={projects.length}
+        hideLeftPane={true}
       />
     </div>
   );

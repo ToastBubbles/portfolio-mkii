@@ -41,7 +41,10 @@ export default function Taskbar({ activeProgramName, minimized }: iProps) {
       <div
         className={`start-menu-container ${startMenuVisible ? "" : "hidden"}`}
       >
-        <StartMenu visible={startMenuVisible} />
+        <StartMenu
+          visible={startMenuVisible}
+          setMenuVisible={setStartMenuVisible}
+        />
         <div className="start-menu-mask"></div>
       </div>
       <StartButton
