@@ -15,14 +15,28 @@ export default function DesktopIcon({
   blackText = false,
 }: iProps) {
   const navigate = useNavigate();
+  let lastTouchTime = 0;
 
+  const handleTouchEnd = () => {
+    const currentTime = new Date().getTime();
+    const tapLength = currentTime - lastTouchTime;
+    if (tapLength < 750) {
+      // If it's a double tap
+      if (link) navigate(link);
+      else if (externalLink) window.open(externalLink, "_blank");
+    } else {
+      // If it's a single tap
+      lastTouchTime = currentTime;
+    }
+  };
   return (
     <div
       className="desktop-icon"
-      onTouchEnd={() => {
-        if (link) navigate(link);
-        else if (externalLink) window.open(externalLink, "_blank");
-      }}
+      onTouchEnd={handleTouchEnd}
+      // onTouchEnd={() => {
+      //   if (link) navigate(link);
+      //   else if (externalLink) window.open(externalLink, "_blank");
+      // }}
       onDoubleClick={() => {
         if (link) navigate(link);
         else if (externalLink) window.open(externalLink, "_blank");
