@@ -50,7 +50,7 @@ export default function MiniProjectsView({
                 className={`clickable ${
                   selectedProject == project ? "selected-icon" : ""
                 }`}
-                style={{ width: "80px", height: "120px" }}
+                style={{ width: "80px", height: "105px" }}
                 draggable={true}
                 onClick={() => {
                   setSelectedProject(project);

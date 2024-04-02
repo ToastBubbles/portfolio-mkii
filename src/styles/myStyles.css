@@ -421,6 +421,9 @@ img {
 .tb-program > div > img {
   margin-right: 5px;
 }
+.projects-view {
+  touch-action: manipulation;
+}
 .ai-start {
   align-items: start;
 }
