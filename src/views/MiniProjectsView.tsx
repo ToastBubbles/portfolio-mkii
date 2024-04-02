@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import FullscreenWindow from "../components/FullscreenWindow";
-import { miniProjects} from "../general/desktopExports";
+import { miniProjects } from "../general/desktopExports";
 import { IProjectData } from "../general/interfaces";
 import DesktopIcon from "../components/DesktopIcon";
 interface iProps {
@@ -40,14 +40,17 @@ export default function MiniProjectsView({
         title="Mini Projects"
         iconName="internet_folder.png"
         content={
-          <div className="d-flex" style={{ width: "100%", flexWrap: "wrap" }}>
+          <div
+            className="d-flex ai-start"
+            style={{ width: "100%", flexWrap: "wrap", height: "120px" }}
+          >
             {miniProjects.map((project, index) => (
               <div
                 key={index}
                 className={`clickable ${
                   selectedProject == project ? "selected-icon" : ""
                 }`}
-                style={{ width: "80px", maxHeight: "95px" }}
+                style={{ width: "80px", height: "120px" }}
                 draggable={true}
                 onClick={() => {
                   setSelectedProject(project);

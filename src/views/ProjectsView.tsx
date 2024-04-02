@@ -40,14 +40,17 @@ export default function ProjectsView({
         endpoint="/projects"
         iconName="internet_folder.png"
         content={
-          <div className="d-flex" style={{ width: "100%", flexWrap: "wrap" }}>
+          <div
+            className="d-flex ai-start"
+            style={{ width: "100%", flexWrap: "wrap", height: "120px" }}
+          >
             {projects.map((project, index) => (
               <div
                 key={index}
                 className={`clickable ${
                   selectedProject == project ? "selected-icon" : ""
                 }`}
-                style={{ width: "80px", maxHeight: "95px" }}
+                style={{ width: "80px", height: "120px" }}
                 draggable={true}
                 onClick={() => {
                   setSelectedProject(project);

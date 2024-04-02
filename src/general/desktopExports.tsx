@@ -35,7 +35,7 @@ export const projects: IProjectData[] = [
     type: "Unity game built for webGL in C#",
     description:
       "A LEGO Fan game crafted for a contest, where participants were tasked with creating captivating gameplay utilizing just a single button.",
-    iconName: "game.png",
+    iconName: "mine.png",
     externalLink: "https://play.unity.com/mg/lego/webgl-builds-113703",
     date: "29 Oct 2021",
   },
@@ -47,6 +47,24 @@ export const projects: IProjectData[] = [
     iconName: "help.png",
     externalLink: "https://github.com/ToastBubbles/gravity-crane",
     date: "29 Oct 2021",
+  },
+  {
+    name: "Escape From Dr Crab!",
+    type: "Unity game built for webGL in C#",
+    description:
+      "<<Challenge Finalist>>  A LEGO Fan game crafted for a contest, where participants were tasked with creating captivating gameplay utilizing just a single button.",
+    iconName: "sat.png",
+    externalLink: "https://play.unity.com/mg/lego/ok-b2i0f6",
+    date: "12 Oct 2021",
+  },
+  {
+    name: "Escape From Dr Crab! (Repository)",
+    type: "Unity game built for webGL in C#",
+    description:
+      "<<Challenge Finalist>>  A LEGO Fan game crafted for a contest, where participants were tasked with creating captivating gameplay utilizing just a single button.",
+    iconName: "help.png",
+    externalLink: "https://github.com/ToastBubbles/escape-from-dr-crab",
+    date: "12 Oct 2021",
   },
   {
     name: "Milk Money",
@@ -163,6 +181,33 @@ export const miniProjects: IProjectData[] = [
     iconName: "vr.png",
     externalLink: "https://github.com/ToastBubbles/vr-cannon",
     date: "27 Mar 2020",
+  },
+  {
+    name: "Coffee Project",
+    type: "Vanilla JS/HTML Project",
+    description:
+      "A Paired-Programming project of a coffee website where you can view, filter, sort different roasts (made to learn web dev)",
+    iconName: "coffee.png",
+    externalLink: "https://github.com/Neal-Wells/coffee-project",
+    date: "10 Jan 2023",
+  },
+  {
+    name: "Movies Project",
+    type: "Vanilla JS/HTML Project",
+    description:
+      "A Paired-Programming project of a movies website where you have full CRUD capabilities using a database hooked up through a firebase API (made to learn web dev)",
+    iconName: "movie.png",
+    externalLink: "https://github.com/neal-perry/movies-app",
+    date: "2 Feb 2023",
+  },
+  {
+    name: "Adlister Project",
+    type: "Full-stack Java/mySQL Project",
+    description:
+      "A Paired-Programming project of a full-stack Job listing website where users can register for accounts, and CRUD Job listings. (made to learn web dev)",
+    iconName: "briefcase.png",
+    externalLink: "https://github.com/AdLister-JG-JN-NS/java-adlister-project",
+    date: "20 Mar 2023",
   },
 ];
 

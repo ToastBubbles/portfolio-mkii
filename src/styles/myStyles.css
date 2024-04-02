@@ -421,6 +421,9 @@ img {
 .tb-program > div > img {
   margin-right: 5px;
 }
+.ai-start {
+  align-items: start;
+}
 @media only screen and (max-width: 900px) {
   body {
     background-size: 20em;
