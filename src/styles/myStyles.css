@@ -473,11 +473,11 @@ img {
 
 .shutdown-7 {
   cursor: wait;
-  background-color: #008080;
+  /* background-color: #008080;
   background-image: url("/NEAL.png");
   background-size: auto;
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
 }
 
 .shutdown-txt {

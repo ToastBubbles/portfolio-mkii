@@ -33,6 +33,8 @@ function App() {
     }
   }, [shutdown]);
 
+  const isMobile = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
   const playStartupSound = () => {
     const audio = new Audio("/startup.wav");
     audio.play();
@@ -47,6 +49,7 @@ function App() {
     const handleKeyDown = () => {
       if (shutdown && shutdownStage === "shutdown-4") {
         document.removeEventListener("keydown", handleKeyDown); // Remove event listener
+        document.removeEventListener("touchstart", handleKeyDown);
 
         setShutdownStage("shutdown-5");
         setTimeout(() => {
@@ -64,10 +67,12 @@ function App() {
 
     if (shutdown && shutdownStage === "shutdown-4") {
       document.addEventListener("keydown", handleKeyDown); // Add event listener for keydown
+      document.addEventListener("touchstart", handleKeyDown);
     }
 
     return () => {
       document.removeEventListener("keydown", handleKeyDown); // Cleanup: remove event listener when component unmounts
+      document.removeEventListener("touchstart", handleKeyDown);
     };
   }, [shutdown, shutdownStage]);
 
@@ -128,7 +133,9 @@ function App() {
     return (
       <div className={`shutdown ${shutdownStage}`}>
         {shutdownStage == "shutdown-4" && (
-          <div className="shutdown-txt">press any key to start</div>
+          <div className="shutdown-txt">
+            {isMobile ? "touch" : "press any key"} to start
+          </div>
         )}
       </div>
     );
