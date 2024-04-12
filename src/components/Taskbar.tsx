@@ -8,9 +8,14 @@ import TaskbarProgram from "./TaskbarProgram";
 interface iProps {
   activeProgramName: string | undefined;
   minimized: string | undefined;
+  shutdown: () => void;
 }
 
-export default function Taskbar({ activeProgramName, minimized }: iProps) {
+export default function Taskbar({
+  activeProgramName,
+  minimized,
+  shutdown,
+}: iProps) {
   const [startMenuVisible, setStartMenuVisible] = useState(false);
 
   const toggleStartMenu = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -43,7 +48,8 @@ export default function Taskbar({ activeProgramName, minimized }: iProps) {
       >
         <StartMenu
           visible={startMenuVisible}
-         
+          hideSelf={() => setStartMenuVisible(false)}
+          shutdown={shutdown}
         />
         <div className="start-menu-mask"></div>
       </div>

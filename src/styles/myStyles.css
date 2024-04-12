@@ -400,7 +400,17 @@ img {
   margin-left: 10.5px;
   font-family: "Pixelated MS Sans Serif", Arial;
 }
-
+.start-menu-icon-hover {
+  background-color: #0000aa;
+  color: white;
+}
+.start-menu-icon-hover > .icon-name {
+  background-color: #0000aa;
+  color: white;
+}
+.w-100 {
+  width: 100%;
+}
 .tb-program {
   border: solid 1px black;
   border-bottom-color: var(--white);
@@ -426,6 +436,59 @@ img {
 }
 .ai-start {
   align-items: start;
+}
+
+.shutdown {
+  width: 100vw;
+  height: 100vh;
+}
+.shutdown-1 {
+  cursor: wait;
+  background-color: #008080;
+}
+
+.shutdown-2 {
+  cursor: wait;
+  background-color: #000000;
+  background-image: url("/shutting-down.jpg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.shutdown-3,
+.shutdown-4,
+.shutdown-5 {
+  background: #000;
+}
+
+.shutdown-6 {
+  cursor: wait;
+  background-color: #000000;
+  background-image: url("/starting-up.gif");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.shutdown-7 {
+  cursor: wait;
+  background-color: #008080;
+  background-image: url("/NEAL.png");
+  background-size: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.shutdown-txt {
+  color: #fff;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30pt;
+  pointer-events: none;
 }
 @media only screen and (max-width: 900px) {
   body {

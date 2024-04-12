@@ -1,12 +1,11 @@
-
 import StartMenuDivider from "./StartMenuDivider";
 import StartMenuIcon from "./StartMenuIcon";
 interface iProps {
   visible: boolean;
-
+  hideSelf: () => void;
+  shutdown: () => void;
 }
-export default function StartMenu({ visible }: iProps) {
-
+export default function StartMenu({ visible, hideSelf, shutdown }: iProps) {
   return (
     <div className={`start-menu ${visible ? "visible" : "hidden"}`}>
       <div>
@@ -17,45 +16,39 @@ export default function StartMenu({ visible }: iProps) {
           <StartMenuIcon
             name="LinkedIn"
             iconName="briefcase.png"
-            blackText={true}
             externalLink="https://www.linkedin.com/in/jeffrey-dan-neal/"
+            hideStartMenu={hideSelf}
           />
           <StartMenuIcon
             name="Github"
             iconName="github.png"
-            blackText={true}
             externalLink="https://github.com/ToastBubbles"
+            hideStartMenu={hideSelf}
           />
           <StartMenuIcon
             name="Contact"
             iconName="msn.png"
-            blackText={true}
             externalLink="mailto:jeffneal11@gmail.com"
+            hideStartMenu={hideSelf}
           />
           <StartMenuDivider />
-          <div
-     
-          >
+          <div>
             <StartMenuIcon
               name="About"
               iconName="about.png"
-              blackText={true}
               link="/about"
+              hideStartMenu={hideSelf}
             />
           </div>
           <StartMenuDivider />
           <StartMenuIcon
             name="Shutdown"
             iconName="shutdown.png"
-            blackText={true}
             overrideFn={shutdown}
+            hideStartMenu={hideSelf}
           />
         </div>
       </div>
     </div>
   );
-
-  function shutdown() {
-    console.log("todo");
-  }
 }
