@@ -27,9 +27,9 @@ function App() {
           setShutdownStage("shutdown-3");
           setTimeout(() => {
             setShutdownStage("shutdown-4");
-          }, 2000); // Wait for 2 seconds
-        }, 4000); // Wait for 2 seconds
-      }, 500); // Wait for 2 seconds
+          }, 2000);
+        }, 4000);
+      }, 500);
     }
   }, [shutdown]);
 
@@ -44,9 +44,8 @@ function App() {
   };
 
   useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
+    const handleKeyDown = () => {
       if (shutdown && shutdownStage === "shutdown-4") {
-        // setShutdown(false); // Reset shutdown state
         document.removeEventListener("keydown", handleKeyDown); // Remove event listener
 
         setShutdownStage("shutdown-5");
@@ -57,9 +56,9 @@ function App() {
             playStartupSound();
             setTimeout(() => {
               setShutdown(false);
-            }, 1500); // Wait for 2 seconds
-          }, 4000); // Wait for 2 seconds
-        }, 2000); // Wait for 2 seconds
+            }, 1500);
+          }, 4000);
+        }, 2000);
       }
     };
 
