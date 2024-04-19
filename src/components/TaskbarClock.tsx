@@ -14,10 +14,21 @@ export default function TaskbarClock() {
 
     return () => clearInterval(intervalId); // Clean up interval on component unmount
   }, []); // Run effect only once on component mount
+  const playDingSound = () => {
+    const audio = new Audio("/ding.wav");
+    audio.play();
+  };
   return (
     <div className="tb-clock">
-      <img src="/speaker.png"></img>
-      <div className="font-old" style={{ margin: "0 0.5em" }}>
+      <img
+        onClick={playDingSound}
+        className="clickable"
+        src="/speaker.png"
+      ></img>
+      <div
+        className="font-old"
+        style={{ margin: "0 0.5em", pointerEvents: "none" }}
+      >
         {currentTime}
       </div>
     </div>

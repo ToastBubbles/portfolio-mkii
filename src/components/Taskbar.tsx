@@ -41,6 +41,8 @@ export default function Taskbar({
     };
   }, [startMenuVisible]);
 
+ 
+
   return (
     <footer className="taskbar">
       <div
