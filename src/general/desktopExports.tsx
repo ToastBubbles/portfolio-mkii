@@ -5,22 +5,22 @@ import { IProjectData } from "./interfaces";
 export const projects: IProjectData[] = [
   {
     name: "qelement",
-    type: "React + Vite Frontend",
+    type: "React + Vite Frontend, Nest API, PostgreSQL DB (TypeScript)",
     description:
       "qelement is a passion project made to cover comprehensive LEGO information.",
     iconName: "defrag.png",
-    externalLink: "https://github.com/ToastBubbles/qelement-web",
+    externalLink: "https://www.theqelement.com/",
     date: "9 Apr 2023",
   },
-  {
-    name: "qelement API",
-    type: "NestJS + PostgreSQL API",
-    description:
-      "qelement is a passion project made to cover comprehensive LEGO information.",
-    iconName: "network.png",
-    externalLink: "https://github.com/ToastBubbles/qelement_api",
-    date: "9 Apr 2023",
-  },
+  // {
+  //   name: "qelement API",
+  //   type: "NestJS + PostgreSQL API",
+  //   description:
+  //     "qelement is a passion project made to cover comprehensive LEGO information.",
+  //   iconName: "network.png",
+  //   externalLink: "https://github.com/ToastBubbles/qelement_api",
+  //   date: "9 Apr 2023",
+  // },
   {
     name: "Scrape Escape!",
     type: "NodeJS app for Ubuntu/Rasperry PI",
