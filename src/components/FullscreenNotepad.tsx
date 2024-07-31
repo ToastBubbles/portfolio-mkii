@@ -36,7 +36,7 @@ My love for programming began in 2014 when I wrote my first ActionScript program
 
 Beyond the IDE:
 
-Other than coding, I'm a huge LEGO fan (if you couldn't already tell!) I have an awesome collection of Star Wars, Minecraft, and (my favorite) non-production LEGO bricks that were only used by LEGO designers/employees to construct models for LEGOLAND themeparks and other events. This facisnation lead me to the creation of my largest and most comprehensive project, qelement. While it is still a work in progress, I plan to have it deployed by mid-to-late 2024. I am also the proud owner of an e-commerce LEGO part store hosted on bricklink.com! My other hobbies include cooking, 3D modelling, animation, graphic design, CAD/CAM with CNC machines, reading, music composition,
+Other than coding, I'm a huge LEGO fan (if you couldn't already tell!) I have an awesome collection of Star Wars, Minecraft, and (my favorite) non-production LEGO bricks that were only used by LEGO designers/employees to construct models for LEGOLAND themeparks and other events. This facisnation lead me to the creation of my largest and most comprehensive project, qelement. While it is still a work in progress, I plan to have it deployed by mid-to-late 2024. I am also the proud owner of an e-commerce LEGO part store hosted on bricklink.com! My other hobbies include cooking, 3D modelling, animation, graphic design, CAD/CAM with CNC machines, reading, music composition, and gaming.
 
 Credits:
 
