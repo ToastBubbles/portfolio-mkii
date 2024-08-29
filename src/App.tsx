@@ -7,6 +7,7 @@ import MiniProjectsView from "./views/MiniProjectsView";
 import { useEffect, useState } from "react";
 import AboutView from "./views/About";
 import BinView from "./views/BinView";
+import BadgeQelementView from "./views/BadgeQElement";
 
 function App() {
   const [programName, setProgramName] = useState<string | undefined>(undefined);
@@ -120,6 +121,8 @@ function App() {
                 />
               }
             />
+
+            <Route path="/BadgeQelement" element={<BadgeQelementView />} />
           </Routes>
         </div>
         <Taskbar
